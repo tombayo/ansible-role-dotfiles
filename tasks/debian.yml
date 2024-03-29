@@ -10,32 +10,32 @@
   block:
     - name: Check if btop exists in repo
       shell: dpkg-query -W 'btop'
-      ignore_errors: true
-      register: btop_exists
+      register: btop_check
+      failed_when: false
 
     - name: Install btop
-      when: btop_exists is not failed
+      when: btop_check.rc == 0
       apt:
         name: btop  
 
     - name: Check if bat exists in repo
       shell: dpkg-query -W 'bat'
-      ignore_errors: true
-      register: bat_exists
+      register: bat_check
+      failed_when: false
 
     - name: Install bat
-      when: bat_exists is not failed
+      when: bat_check.rc == 0
       apt:
         name: bat
 
     - name: Check if eza exists in repo
       shell: dpkg-query -W 'eza'
-      ignore_errors: true
-      register: eza_exists
+      register: eza_check
+      failed_when: false
 
     - name: Install eza
-      when: eza_exists is not failed
+      when: eza_check.rc == 0
       apt:
         name: eza
-        
+
 - include_tasks: copy-dots.yml

@@ -1,29 +1,29 @@
 - name: Copy .bash_aliases
-  ansible.builtin.copy:
+  copy:
     src: .bash_aliases
     dest: ~/.bash_aliases
 
 - name: Copy .bashrc
-  ansible.builtin.copy:
+  copy:
     src: .bashrc
     dest: ~/.bashrc
 
 - name: Copy fish folder
-  ansible.builtin.copy:
+  copy:
     src: .config/fish
     dest: ~/.config/fish
 
 - name: Copy .functions
-  ansible.builtin.copy:
+  copy:
     src: .functions
     dest: ~/.functions
 
 - name: Copy .gitconfig
-  ansible.builtin.copy:
+  copy:
     src: .gitconfig
     dest: ~/.gitconfig
 
 - name: Copy .tmux.conf
-  ansible.builtin.copy:
+  copy:
     src: .tmux.conf
     dest: ~/.tmux.conf
