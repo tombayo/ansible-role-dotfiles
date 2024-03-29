@@ -1,0 +1,11 @@
+- name: Install Packages I like
+  ansible.builtin.package:
+    name:
+      - fish
+      - bat
+      - eza
+      - fzf
+      - neofetch
+      - btop
+
+- include_tasks: copy-dots.yml
