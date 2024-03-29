@@ -40,5 +40,3 @@
       when: eza_check.rc == 0
       apt:
         name: eza
-
-- include_tasks: copy-dots.yml
