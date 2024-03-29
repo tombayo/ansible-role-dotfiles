@@ -7,5 +7,6 @@
       - fzf
       - neofetch
       - btop
+      - mc
 
 - include_tasks: copy-dots.yml

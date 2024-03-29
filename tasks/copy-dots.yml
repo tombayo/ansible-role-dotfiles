@@ -8,10 +8,10 @@
     src: .bashrc
     dest: ~/.bashrc
 
-- name: Copy .config folder
+- name: Copy fish folder
   ansible.builtin.copy:
-    src: .config
-    dest: ~/.config
+    src: .config/fish
+    dest: ~/.config/fish
 
 - name: Copy .functions
   ansible.builtin.copy:
