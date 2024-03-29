@@ -11,7 +11,7 @@
 - name: Copy fish folder
   copy:
     src: .config/fish
-    dest: ~/.config/fish
+    dest: ~/.config
 
 - name: Copy .functions
   copy:
