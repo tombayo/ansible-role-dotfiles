@@ -1,12 +1,41 @@
-- name: Install Packages I like
+- name: Install Packages I like   # These should exist in most repositories
   ansible.builtin.package:
     name:
       - fish
-      - bat
-      - eza
+      - mc
       - fzf
       - neofetch
-      - btop
-      - mc
+
+- name: Install nice-to-have Packages   # These might not exist, checking before installing.
+  block:
+    - name: Check if btop exists in repo
+      shell: dpkg-query -W 'btop'
+      ignore_errors: true
+      register: btop_exists
+
+    - name: Install btop
+      ansible.builtin.package:
+        name: btop
+        when: btop_exists is not failed
+
+    - name: Check if bat exists in repo
+      shell: dpkg-query -W 'bat'
+      ignore_errors: true
+      register: bat_exists
+
+    - name: Install bat
+      ansible.builtin.package:
+        name: bat
+        when: bat_exists is not failed
+
+    - name: Check if eza exists in repo
+      shell: dpkg-query -W 'eza'
+      ignore_errors: true
+      register: eza_exists
+
+    - name: Install eza
+      ansible.builtin.package:
+        name: eza
+        when: eza_exists is not failed
 
 - include_tasks: copy-dots.yml
