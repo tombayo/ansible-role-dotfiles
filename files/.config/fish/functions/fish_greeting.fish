@@ -1,3 +1,5 @@
 function fish_greeting
-	neofetch
+	if type -q neofetch
+		neofetch
+	end
 end

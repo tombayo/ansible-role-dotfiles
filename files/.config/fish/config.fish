@@ -5,8 +5,6 @@ end
 # Aliases:
 alias s="ssh"
 alias c="clear"
-alias ls="eza"
-alias cat="batcat"
 
 # Settings:
 
