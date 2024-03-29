@@ -108,7 +108,11 @@ function fish_prompt
     and _nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
 
     # git
-    set -l prompt_git (fish_git_prompt '%s')
+    if type -q fish_git_prompt
+        set -l prompt_git (fish_git_prompt '%s')
+    else
+        set -l prompt_git ""
+    end
     test -n "$prompt_git"
     and _nim_prompt_wrapper $retc G $prompt_git
 
