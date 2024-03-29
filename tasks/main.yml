@@ -1,6 +1,7 @@
 ---
 - include_tasks: debian.yml
-  become: true
   when: ansible_os_family == 'Debian'
+  vars:
+    ansible_become: true
 
 - include_tasks: copy-dots.yml
