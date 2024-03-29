@@ -12,6 +12,7 @@
       shell: dpkg-query -W 'btop'
       register: btop_check
       failed_when: false
+      changed_when: false
 
     - name: Install btop
       when: btop_check.rc == 0
@@ -22,6 +23,7 @@
       shell: dpkg-query -W 'bat'
       register: bat_check
       failed_when: false
+      changed_when: false
 
     - name: Install bat
       when: bat_check.rc == 0
@@ -32,6 +34,7 @@
       shell: dpkg-query -W 'eza'
       register: eza_check
       failed_when: false
+      changed_when: false
 
     - name: Install eza
       when: eza_check.rc == 0
