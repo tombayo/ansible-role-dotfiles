@@ -1,5 +1,5 @@
 - name: Install Packages I like   # These should exist in most repositories
-  ansible.builtin.package:
+  apt:
     name:
       - fish
       - mc
@@ -14,7 +14,7 @@
       register: btop_exists
 
     - name: Install btop
-      ansible.builtin.package:
+      apt:
         name: btop
         when: btop_exists is not failed
 
@@ -24,7 +24,7 @@
       register: bat_exists
 
     - name: Install bat
-      ansible.builtin.package:
+      apt:
         name: bat
         when: bat_exists is not failed
 
@@ -34,7 +34,7 @@
       register: eza_exists
 
     - name: Install eza
-      ansible.builtin.package:
+      apt:
         name: eza
         when: eza_exists is not failed
 
