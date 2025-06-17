@@ -17,7 +17,7 @@
     - name: Install btop
       when: btop_check.rc == 0
       apt:
-        name: btop  
+        name: btop
 
     - name: Check if bat exists in repo
       shell: dpkg-query -W 'bat'
