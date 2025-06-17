@@ -1,27 +1,8 @@
-- name: Copy .bash_aliases
-  copy:
-    src: .bash_aliases
-    dest: ~/.bash_aliases
-
-- name: Copy .bashrc
-  copy:
-    src: .bashrc
-    dest: ~/.bashrc
-
+---
 - name: Copy fish folder
   copy:
     src: .config/fish
     dest: ~/.config
-
-- name: Copy .functions
-  copy:
-    src: .functions
-    dest: ~/.functions
-
-- name: Copy .gitconfig
-  copy:
-    src: .gitconfig
-    dest: ~/.gitconfig
 
 - name: Copy .tmux.conf
   copy:
