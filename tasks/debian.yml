@@ -1,42 +1,14 @@
 - name: Install Packages I like   # These should exist in most repositories
   apt:
-    name:
-      - fish
-      - mc
-      - fzf
-      - neofetch
+    name: "{{ required_packages }}"
 
 - name: Install nice-to-have Packages   # These might not exist, checking before installing.
-  block:
-    - name: Check if btop exists in repo
-      shell: apt show btop
-      register: btop_check
-      failed_when: false
-      changed_when: false
+  include_tasks:
+    file: apt_check_install.yml
+  loop: "{{ optional_packages }}"
+  loop_control:
+    label: Checking/installing {{ item }}
 
-    - name: Install btop
-      when: btop_check.rc == 0
-      apt:
-        name: btop
-
-    - name: Check if bat exists in repo
-      shell: apt show bat
-      register: bat_check
-      failed_when: false
-      changed_when: false
-
-    - name: Install bat
-      when: bat_check.rc == 0
-      apt:
-        name: bat
-
-    - name: Check if eza exists in repo
-      shell: apt show eza
-      register: eza_check
-      failed_when: false
-      changed_when: false
-
-    - name: Install eza
-      when: eza_check.rc == 0
-      apt:
-        name: eza
+- name: Apply preferred user settings
+  include_tasks:
+    file: user-settings.yml

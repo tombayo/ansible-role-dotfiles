@@ -1,0 +1,12 @@
+---
+- name: Check if {{ item }} exists in repo
+  shell: apt show {{ item }}
+  register: apt_check
+  failed_when: false
+  changed_when: false
+
+- name: Install {{ item }}
+  when: apt_check.rc == 0
+  apt:
+    name: "{{ item }}"
+

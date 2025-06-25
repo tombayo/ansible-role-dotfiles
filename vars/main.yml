@@ -1,0 +1,11 @@
+---
+required_packages:
+  - fish
+  - mc
+  - fzf
+  - neofetch
+
+optional_packages:
+  - btop
+  - bat
+  - eza
