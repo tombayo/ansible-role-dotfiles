@@ -4,6 +4,7 @@ required_packages:
   - mc
   - fzf
   - neofetch
+  - tldr
 
 optional_packages:
   - btop
