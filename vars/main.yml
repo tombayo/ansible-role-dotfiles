@@ -10,3 +10,4 @@ optional_packages:
   - btop
   - bat
   - eza
+  - exa # in case eza doesnt exist
